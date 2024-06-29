@@ -1,0 +1,115 @@
+// schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             String      @id @default(uuid())
+  email          String    @unique
+  password       String
+  role           Role
+  profile        Profile?
+  mealPlan       MealPlan[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Profile {
+  id              String        @id @default(uuid())
+  userId          String       @unique
+  user            User       @relation(fields: [userId], references: [id])
+  age             Int?
+  gender          Gender?
+  weight          Float?
+  height          Float?
+  dietaryPreferences DietaryPreference[]
+  allergies       Allergy[]
+  healthGoals     HealthGoal[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model DietaryPreference {
+  id          Int     @id @default(autoincrement())
+  name        String
+  profileId   String
+  profile     Profile @relation(fields: [profileId], references: [id])
+}
+
+model Allergy {
+  id          Int     @id @default(autoincrement())
+  name        String
+  profileId   String
+  profile     Profile @relation(fields: [profileId], references: [id])
+}
+
+model HealthGoal {
+  id          Int     @id @default(autoincrement())
+  name        String
+  profileId   String
+  profile     Profile @relation(fields: [profileId], references: [id])
+}
+
+model MealPlan {
+  id              Int        @id @default(autoincrement())
+  userId          String
+  user            User       @relation(fields: [userId], references: [id])
+  planType        PlanType
+  startDate       DateTime
+  endDate         DateTime
+  meals           Meal[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model Meal {
+  id          Int     @id @default(autoincrement())
+  mealPlanId  Int
+  mealPlan    MealPlan @relation(fields: [mealPlanId], references: [id])
+  name        String
+  calories    Float
+  protein     Float
+  fat         Float
+  carbs       Float
+  vitamins    String?
+  minerals    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Food {
+  id          Int     @id @default(autoincrement())
+  name        String
+  calories    Float
+  protein     Float
+  fat         Float
+  carbs       Float
+  vitamins    String?
+  minerals    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum PlanType {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
