@@ -8,16 +8,13 @@ interface layoutProps {
 }
 
 const layout: FC<layoutProps> = ({ children }) => {
-  
   return (
-      <div className="h-full">
-        <Navbar />
-        <div className="w-[72px] z-30 flex mt-32">
+    <div className="h-full w-full">
+      <div className="z-30 flex w-full overflow-hidden">
         <Sidebar />
-        {children}
-        <main className="md:pl-[250px] h-full">{children}</main>
-        </div>
+        <div className="absolute left-[16rem]">{children}</div>
       </div>
+    </div>
   );
 };
 

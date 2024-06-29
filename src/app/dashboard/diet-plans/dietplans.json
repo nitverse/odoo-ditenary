@@ -1,0 +1,70 @@
+{
+  "dietname": "Low Carb Diet",
+  "description": "A diet plan focused on reducing carbohydrate intake to promote weight loss and improve blood sugar control.",
+  "tags": ["low-carb", "weight loss", "nutrition"],
+  "meals": [
+    {
+      "meal_name": "Breakfast",
+      "foods": [
+        {
+          "food_name": "Eggs",
+          "quantity": "2",
+          "calories": 140,
+          "carbs": 1,
+          "protein": 12,
+          "fat": 10
+        },
+        {
+          "food_name": "Avocado",
+          "quantity": "1/2",
+          "calories": 120,
+          "carbs": 5,
+          "protein": 2,
+          "fat": 10
+        }
+      ]
+    },
+    {
+      "meal_name": "Lunch",
+      "foods": [
+        {
+          "food_name": "Grilled Chicken Breast",
+          "quantity": "4 oz",
+          "calories": 180,
+          "carbs": 0,
+          "protein": 35,
+          "fat": 4
+        },
+        {
+          "food_name": "Mixed Green Salad",
+          "quantity": "1 cup",
+          "calories": 50,
+          "carbs": 4,
+          "protein": 2,
+          "fat": 3
+        }
+      ]
+    },
+    {
+      "meal_name": "Dinner",
+      "foods": [
+        {
+          "food_name": "Salmon Fillet",
+          "quantity": "6 oz",
+          "calories": 240,
+          "carbs": 0,
+          "protein": 34,
+          "fat": 11
+        },
+        {
+          "food_name": "Steamed Broccoli",
+          "quantity": "1 cup",
+          "calories": 55,
+          "carbs": 11,
+          "protein": 3,
+          "fat": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,15 +1,9 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-interface pageProps {
-  
-}
+interface pageProps {}
 
 const page: FC<pageProps> = ({}) => {
-  return (
-      <div className='flex '>
-          aldkngsaklgns 
-    </div>
-)
-}
+  return <div className="flex "></div>;
+};
 
-export default page
+export default page;
