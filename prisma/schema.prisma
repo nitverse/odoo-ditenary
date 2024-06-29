@@ -15,46 +15,16 @@ model User {
   email          String    @unique
   name           String
   role           Role
-  profile        Profile?
   mealPlan       MealPlan[]
+  age             String?
+  gender          Gender?
+  weight          String?
+  height          String?
+  dietaryPreferences String?
+  allergies       String?
+  healthGoals     String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
-}
-
-model Profile {
-  id              String        @id @default(uuid())
-  userId          String       @unique
-  user            User       @relation(fields: [userId], references: [id])
-  age             Int?
-  gender          Gender?
-  weight          Float?
-  height          Float?
-  dietaryPreferences DietaryPreference[]
-  allergies       Allergy[]
-  healthGoals     HealthGoal[]
-  createdAt       DateTime   @default(now())
-  updatedAt       DateTime   @updatedAt
-}
-
-model DietaryPreference {
-  id          Int     @id @default(autoincrement())
-  name        String
-  profileId   String
-  profile     Profile @relation(fields: [profileId], references: [id])
-}
-
-model Allergy {
-  id          Int     @id @default(autoincrement())
-  name        String
-  profileId   String
-  profile     Profile @relation(fields: [profileId], references: [id])
-}
-
-model HealthGoal {
-  id          Int     @id @default(autoincrement())
-  name        String
-  profileId   String
-  profile     Profile @relation(fields: [profileId], references: [id])
 }
 
 model MealPlan {

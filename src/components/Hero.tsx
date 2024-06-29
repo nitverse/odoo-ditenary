@@ -1,6 +1,7 @@
 import React from "react";
 import GridLayout from "./GridLayout";
 import getDietPlan from "./../actions/openAI";
+import Image from "next/image";
 import { Button } from "./ui/button";
 import { ContainerScroll } from "./ui/container-scroll-animation";
 
@@ -15,11 +16,7 @@ const Hero = async () => {
 
   return (
     <GridLayout>
-      <div
-        className={
-          "container h-[65rem] flex flex-col justify-start items-center"
-        }
-      >
+      <div className={"container flex flex-col justify-start items-center"}>
         <h2 className="text-4xl text-center sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400 pt-8 pb-6">
           Eat Right, <br /> Feel Bright
         </h2>

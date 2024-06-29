@@ -31,7 +31,7 @@ export const ContainerScroll = () => {
 
   return (
     <div
-      className="h-[60rem] w-full md:h-[80rem] flex items-center justify-center absolute p-2 md:p-20 mt-14"
+      className=" h-[60rem] w-full md:h-[80rem] flex items-center justify-center absolute p-2 md:p-20 mt-14"
       ref={containerRef}
     >
       <div
@@ -65,91 +65,106 @@ export const Card = ({
       name: "Spinach",
       designation: "Rich in Iron",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Salmon",
       designation: "Omega-3 Fats",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Blueberries",
       designation: "High Antioxidants",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Almonds",
       designation: "Good Fats",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Quinoa",
       designation: "Protein Packed",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Avocado",
       designation: "Healthy Fats",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Sweet Potato",
       designation: "Vitamin A",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Greek Yogurt",
       designation: "Rich in Protein",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Garlic",
       designation: "Boosts Immunity",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Lentils",
       designation: "Fiber-Rich",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Broccoli",
       designation: "Vitamin C",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Oats",
       designation: "High Fiber",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Eggs",
       designation: "Protein Rich",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Walnuts",
       designation: "Omega-3 Fats",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/434295/pexels-photo-434295.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       name: "Chicken Breast",
       designation: "Lean Protein",
       badge: "Healthy",
-      image: "",
+      image:
+        "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
   ];
   return (

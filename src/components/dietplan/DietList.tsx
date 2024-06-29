@@ -1,31 +1,29 @@
 import { FC } from "react";
-import { CircleCheck, Wheat, Leaf, Apple, Salad, Bean } from "lucide-react";
+import { CalendarCheck, CalendarClock, CalendarDays } from "lucide-react";
+import Link from "next/link";
 
-interface DietListProps {}
-
-const DietList: FC<DietListProps> = ({}) => {
+const DietList = ({ active }: { active: any }) => {
   const dietFoodCategories = [
-    { name: "Lean Proteins", icon: <CircleCheck size={24} /> },
-    { name: "Whole Grains", icon: <Wheat size={24} /> },
-    { name: "Leafy Greens", icon: <Leaf size={24} /> },
-    { name: "Fresh Fruits", icon: <Apple size={24} /> },
-    { name: "Vegetables", icon: <Salad size={24} /> },
-    { name: "Nuts and Seeds", icon: <Bean size={24} /> },
+    { name: "Daily", icon: <CalendarCheck size={24} /> },
+    { name: "Weekly", icon: <CalendarClock size={24} /> },
+    { name: "Monthly", icon: <CalendarDays size={24} /> },
   ];
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-semibold mb-4">
-        Select Your Preferred Category
-      </h1>
       <div className="flex flex-wrap gap-4">
         {dietFoodCategories.map((category, index) => (
-          <div
+          <Link
+            href={`/dashboard/diet-plans?frequency=${category.name.toLowerCase()}`}
             key={index}
-            className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md shadow-md"
+            className={`flex items-center gap-2 ${
+              active === category.name.toLowerCase()
+                ? "bg-blue-200"
+                : "bg-gray-100"
+            } px-3 py-2 rounded-md shadow-md cursor-pointer`}
           >
             <div className="w-6 h-6">{category.icon}</div>
             <span className="text-gray-800">{category.name}</span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

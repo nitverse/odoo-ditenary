@@ -1,7 +1,6 @@
 import DashboardContent from "@/components/DashboardContent";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import { ClerkProvider, SignedIn, UserButton } from "@clerk/nextjs";
 import { FC } from "react";
 interface layoutProps {
   children: React.ReactNode;

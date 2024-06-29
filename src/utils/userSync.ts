@@ -1,12 +1,13 @@
 import { prisma } from "@/utils/db";
+import { Role, Gender } from "@prisma/client";
+
 export async function handleUserCreated(userData: any) {
-  // const { id, email: email_addresses[0].email_address , role, profile } = userData;
   const id = userData.id;
   const email = userData.email_addresses[0].email_address;
-  const role = "USER";
-  const profile = userData.profile;
+  const role: Role = "USER";
+  const name = `${userData.first_name} ${userData.last_name}`;
 
-  console.log(profile);
+  console.log("User created:", userData);
 
   try {
     const user = await prisma.user.create({
@@ -14,16 +15,7 @@ export async function handleUserCreated(userData: any) {
         id,
         email,
         role,
-        name: profile.first_name + profile.last_name,
-        profile: {
-          create: {
-            id,
-            ...profile, // Assuming profile contains age, gender, weight, height
-          },
-        },
-      },
-      include: {
-        profile: true,
+        name,
       },
     });
     console.log("User created successfully:", user);
@@ -33,20 +25,15 @@ export async function handleUserCreated(userData: any) {
 }
 
 export async function handleUserUpdated(userData: any) {
-  // Update user and associated Profile in Prisma database
-  const { id, email, role, profile } = userData;
+  const { id, email, role } = userData;
+  const name = `${userData.first_name} ${userData.last_name}`;
   try {
     const user = await prisma.user.update({
       where: { id },
       data: {
+        name,
         email,
-        role,
-        profile: {
-          update: profile, // Update profile fields as needed
-        },
-      },
-      include: {
-        profile: true,
+        role: role as Role,
       },
     });
     console.log("User updated successfully:", user);
@@ -56,14 +43,10 @@ export async function handleUserUpdated(userData: any) {
 }
 
 export async function handleUserDeleted(userData: any) {
-  // Delete user and associated Profile from Prisma database
   const { id } = userData;
   try {
     const user = await prisma.user.delete({
       where: { id },
-      include: {
-        profile: true,
-      },
     });
     console.log("User deleted successfully:", user);
   } catch (error) {

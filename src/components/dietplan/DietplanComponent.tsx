@@ -2,49 +2,127 @@ import React from "react";
 import Image from "next/image";
 
 const DietPlanComponent: React.FC = () => {
+  const dietPlan = {
+    name: "Balanced Diet Plan",
+    description:
+      "A well-rounded diet focusing on lean proteins, whole grains, fruits, and vegetables, ensuring nutrient variety and portion control for optimal health.",
+    caloricIntake: "1500-2000 calories per day",
+    nutritionalGuidelines:
+      "Balanced macronutrient distribution with emphasis on whole foods and adequate micronutrient intake.",
+    allowedFoods: "Lean proteins, whole grains, fruits, vegetables",
+    restrictedFoods: "Processed foods, high-sugar items",
+    mealFrequency: "3 meals + 2 snacks per day",
+    portionSizes: "Controlled portions to meet caloric and nutritional needs",
+    mealPlans:
+      "Example meal plans include breakfast: oatmeal with fruits, lunch: grilled chicken salad, dinner: salmon with quinoa.",
+    hydrationRecommendations:
+      "Drink at least 8 glasses (64 ounces) of water per day.",
+    exerciseRecommendations: "Moderate-intensity exercise 3-5 times per week.",
+    lifestyleRecommendations:
+      "Ensure adequate sleep (7-9 hours per night) and manage stress through relaxation techniques.",
+    shoppingLists:
+      "Weekly grocery list includes fresh produce, lean meats, whole grains.",
+    cookingTips:
+      "Use healthy cooking methods like baking, grilling, or steaming.",
+    mealPrep: "Prepare meals in advance to maintain dietary consistency.",
+  };
   return (
-    <div className="flex flex-col mt-6 text-gray-700 bg-white shadow-md rounded-xl w-full lg:w-80">
-      <div className="lg:flex lg:flex-row">
-        <div className="lg:w-1/2 relative h-40 lg:h-auto overflow-hidden rounded-tl-xl rounded-bl-xl lg:rounded-bl-none lg:rounded-tr-xl">
+    <div className="container mx-auto py-8 w-full">
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="relative h-80">
           <Image
-            src=""
+            src="/images/diet-plan-placeholder.jpg"
+            alt="Diet Plan Image"
             layout="fill"
             objectFit="cover"
-            alt="Dietplan"
-            className="rounded-tl-xl rounded-bl-xl lg:rounded-bl-none lg:rounded-tr-xl"
+            className="rounded-t-lg"
           />
         </div>
+        <div className="p-6">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+            {dietPlan.name}
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">{dietPlan.description}</p>
 
-        <div className="lg:w-1/2 bg-blue-gray-100 p-6 rounded-br-xl rounded-tr-xl lg:rounded-tr-none lg:rounded-bl-xl">
-          <h5 className="mb-2 font-semibold text-xl text-blue-gray-900">
-            Nutrition Plan
-          </h5>
-          <p className="text-base text-gray-900 leading-relaxed">
-            A balanced diet includes lean proteins, whole grains, fruits, and
-            vegetables, ensuring nutrient variety and portion control for
-            optimal health.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <span className="px-2 py-1 bg-blue-500 text-white rounded-full text-xs uppercase font-semibold">
-              Lean Proteins
-            </span>
-            <span className="px-2 py-1 bg-blue-500 text-white rounded-full text-xs uppercase font-semibold">
-              Whole Grains
-            </span>
-            <span className="px-2 py-1 bg-blue-500 text-white rounded-full text-xs uppercase font-semibold">
-              Fruits
-            </span>
-            <span className="px-2 py-1 bg-blue-500 text-white rounded-full text-xs uppercase font-semibold">
-              Vegetables
-            </span>
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">
+              Nutritional Guidelines
+            </h3>
+            <p>
+              <span className="font-semibold">Caloric Intake:</span>{" "}
+              {dietPlan.caloricIntake}
+            </p>
+            <p>
+              <span className="font-semibold">Macro and Micro-nutrients:</span>{" "}
+              {dietPlan.nutritionalGuidelines}
+            </p>
           </div>
-          <div className="mt-6">
-            <button
-              className="font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md hover:shadow-lg focus:opacity-85 focus:shadow-none active:opacity-85 active:shadow-none"
-              type="button"
-            >
-              Buy
-            </button>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">Food Lists</h3>
+            <p>
+              <span className="font-semibold">Allowed Foods:</span>{" "}
+              {dietPlan.allowedFoods}
+            </p>
+            <p>
+              <span className="font-semibold">Restricted Foods:</span>{" "}
+              {dietPlan.restrictedFoods}
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">Meal Structure</h3>
+            <p>
+              <span className="font-semibold">Meal Frequency:</span>{" "}
+              {dietPlan.mealFrequency}
+            </p>
+            <p>
+              <span className="font-semibold">Portion Sizes:</span>{" "}
+              {dietPlan.portionSizes}
+            </p>
+            <p>
+              <span className="font-semibold">Meal Plans:</span>{" "}
+              {dietPlan.mealPlans}
+            </p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">
+              Hydration Recommendations
+            </h3>
+            <p>{dietPlan.hydrationRecommendations}</p>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold mb-2">
+              Exercise and Lifestyle Recommendations
+            </h3>
+            <p>
+              <span className="font-semibold">Physical Activity Levels:</span>{" "}
+              {dietPlan.exerciseRecommendations}
+            </p>
+            <p>
+              <span className="font-semibold">Lifestyle Guidelines:</span>{" "}
+              {dietPlan.lifestyleRecommendations}
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">
+              Supporting Information
+            </h3>
+            <p>
+              <span className="font-semibold">Shopping Lists:</span>{" "}
+              {dietPlan.shoppingLists}
+            </p>
+            <p>
+              <span className="font-semibold">Cooking Tips:</span>{" "}
+              {dietPlan.cookingTips}
+            </p>
+            <p>
+              <span className="font-semibold">Meal Prep:</span>{" "}
+              {dietPlan.mealPrep}
+            </p>
           </div>
         </div>
       </div>

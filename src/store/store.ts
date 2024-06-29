@@ -9,16 +9,14 @@ export type ChatState = {
 };
 
 export type ChatStore = {
-  loading: boolean;
   messages: ChatState[];
   addMessage: (chat: ChatState) => void;
-  updateMessage: (id: string, chat: Partial<ChatState>) => void;
+  updateMessage: (id: string, chunk: string) => void;
 };
 
 export const useChatStore = create<ChatStore>()(
   persist(
     (set) => ({
-      loading: false,
       messages: [
         {
           id: nanoid(),
@@ -28,13 +26,15 @@ export const useChatStore = create<ChatStore>()(
       ],
       addMessage: (chat) => {
         set((state) => ({
-          messages: [...state.messages, { ...chat, id: nanoid() }],
+          messages: [...state.messages, chat],
         }));
       },
-      updateMessage: (id, chat) => {
+      updateMessage: (id, chunk) => {
         set((state) => ({
           messages: state.messages.map((message) =>
-            message.id === id ? { ...message, ...chat } : message
+            message.id == id
+              ? { ...message, chat: message.chat + chunk }
+              : message
           ),
         }));
       },
