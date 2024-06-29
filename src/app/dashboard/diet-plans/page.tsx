@@ -1,16 +1,14 @@
-import { FC } from 'react'
+import DietCard from "@/components/dietplan/DietCard";
+import { FC } from "react";
 
-interface pageProps {
-  
-}
+interface pageProps {}
 
 const page: FC<pageProps> = ({}) => {
   return (
+    <div>
+      <DietCard />
+    </div>
+  );
+};
 
-<div>
-page
-</div>
-)
-}
-
-export default page
+export default page;

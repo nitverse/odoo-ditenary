@@ -1,9 +1,20 @@
 import React from "react";
 import GridLayout from "./GridLayout";
+import getDietPlan from "./../actions/openAI";
 import { Button } from "./ui/button";
 import { ContainerScroll } from "./ui/container-scroll-animation";
 
-const Hero = () => {
+const Hero = async () => {
+  try {
+    // const res = await getDietPlan();
+    // console.log("BELOW IS RES");
+    
+  // console.log(res);
+  } catch (error) {
+    console.log(error);
+    
+  }
+  
   return (
     <GridLayout>
       <div

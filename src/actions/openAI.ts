@@ -1,14 +1,17 @@
-import OpenAI from "openai";
+"use server";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const openai = new OpenAI();
+// Access your API key as an environment variable (see "Set up your API key" above)
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-async function main() {
-  const completion = await openai.chat.completions.create({
-    messages: [{ role: "system", content: "You are a helpful assistant." }],
-    model: "gpt-3.5-turbo",
-  });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
-  console.log(completion.choices[0]);
+export default async function getDietPlan() {
+  const prompt = "Write a story about a AI and magic"
+
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text();
+  return text;
+  console.log(text);
 }
-
-main();

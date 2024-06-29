@@ -1,43 +1,21 @@
-import { auth } from '@clerk/nextjs/server';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+// components/WithRole.tsx
+import React from "react";
+import { auth } from "@clerk/nextjs/server";
+import Unauthorized from "@/components/Unauthorized";
 
-const withRole = (Page, requiredPermission) => {
-  return function RoleProtectedPage(props) {
-    const [isAuthorized, setIsAuthorized] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
-    const router = useRouter();
+const withRole = (
+  WrappedComponent: React.ComponentType,
+  requiredRole: string
+) => {
+  return (props: any) => {
+    const { has } = auth();
 
-    useEffect(() => {
-      const checkAuthorization = async () => {
-        try {
-          const { has } = auth();
-          const canManage = has({ permission: requiredPermission });
+    const canAccess = has({ role: requiredRole });
+    console.log(canAccess);
 
-          if (canManage) {
-            setIsAuthorized(true);
-          } else {
-            router.replace('/401');
-          }
-        } catch (error) {
-          router.replace('/401');
-        } finally {
-          setIsLoading(false);
-        }
-      };
+    if (!canAccess) return <Unauthorized />;
 
-      checkAuthorization();
-    }, []);
-
-    if (isLoading) {
-      return (
-        <div className="flex items-center justify-center h-screen">
-          <div className="text-lg font-semibold text-gray-800">Loading...</div>
-        </div>
-      )
-    }
-
-    return isAuthorized ? <Page {...props} /> : null;
+    return <WrappedComponent {...props} />;
   };
 };
 
